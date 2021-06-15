@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: springcloud-eureka-demo
+  security:
+    user:
+      name: root
+      password: admin
+
+server:
+  port: 8080
+
+eureka:
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 10000
+  client:
+    #是否需要向注册中心注册 eureka-server 不需要
+    register-with-eureka: false
+    #是否需要检索服务
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:${server.port}/eureka/
