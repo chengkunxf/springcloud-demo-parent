@@ -7,9 +7,11 @@ spring:
       password: admin
 
 server:
-  port: 8080
+  port: 8763
 
 eureka:
+  instance:
+    hostname: eureka8763
   server:
     enable-self-preservation: false
     eviction-interval-timer-in-ms: 10000
@@ -19,4 +21,4 @@ eureka:
     #是否需要检索服务
     fetch-registry: true
     service-url:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:${server.port}/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@eureka8761:8761/eureka/,http://${spring.security.user.name}:${spring.security.user.password}@eureka8762:8762/eureka/
